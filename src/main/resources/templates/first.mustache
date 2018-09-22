@@ -1,0 +1,31 @@
+<html>
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div>
+<form method="post" action="/main">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="text" name="text" placeholder="введите текст"/>
+    <input type="text" name="tag" placeholder="тэг"/>
+    <button type="submit">Готово</button>
+</form>
+    <form method="post" action="find">
+       <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="text" name="find" placeholder="Введите тэг" />
+        <button type="submit">Найти</button>
+    </form>
+</div>
+<div>Список сообщений</div>
+{{#messages}}
+<div>
+<b>{{id}}</b>
+<span>{{text}}</span>
+<i>{{tag}}</i>
+</div>
+{{/messages}}
+</body>
+</html>
